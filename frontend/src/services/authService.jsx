@@ -1,43 +1,22 @@
-import axios from "axios"
 
-const API = "http://localhost:3000/auth"
+import axios from "axios";
 
+const API = `${import.meta.env.VITE_API_URL}/auth`;
 
 export const signupUser = async (email, password) => {
-
     const response = await axios.post(
-        `${API}/singup`,{email, password})
+        `${API}/singup`,
+        { email, password }
+    );
 
-    return response.data
-}
-
+    return response.data;
+};
 
 export const loginUser = async (email, password) => {
-
     const response = await axios.post(
-        `${API}/login`, {email, password})
-    return response.data
-}
+        `${API}/login`,
+        { email, password }
+    );
 
-
-
-
-
-
-
-
-
-// for explanation 
-// response = {
-//     data: {
-//         message: "Signup successful"
-//     },
-
-//     status: 201,
-
-//     statusText: "Created",
-
-//     headers: {...},
-
-//     config: {...}
-// }
+    return response.data;
+};
